@@ -2,11 +2,18 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import Icon from "@/components/Icon";
-import { facts, values, bars, divisions, segments, steps, missions, holders, people } from "@/components/data";
+import { values, bars, divisions, steps, missions, holders, people } from "@/components/data";
 
 const HERO = "https://lh3.googleusercontent.com/aida-public/AB6AXuBREME3S_dhMy-bQx6Jkj7jUZqfP0dyUgW41p_cpNi4G81CH6ROSqhcfKmrUo3b6nHnBPLh6SbI0MXOAhcfleIx_yNJmxlAp18NzcoZOT-5carC92o-364erjHEjNVOuTiS_rC8OjD7g8IEXNgnj3g6xCtbUpFqDJRkiZai_o0VXMTVleWtHaxkdjFquLjv-jBy9VsXZOfODplOfUREIDvKIQmqWuUxJu0dhT1dNX9e";
 const WAREHOUSE = "https://lh3.googleusercontent.com/aida-public/AB6AXuCuharSi9jC4H4Ddp-IVhoufqKXap6v8dTsubOOxxJm7QeslDLkQzQZMxCFVR5b8qUEDcUyBYezi1pub6IUhsQiiiQMQnrPyiUyJ1ILZhi7QgF71kOhtgUf-ORHhypB31WR8WLsvc72HW88Jf2gwiqDOr0_2MdsbVOJ9hXljLvmuEIXhxTn0ndsYjODfw8BckiDxe54Az0rcMieUfPvsN_1fi4aWPXnoE88zBLSBJ7x";
 const MAP = "https://lh3.googleusercontent.com/aida-public/AB6AXuAkukDB6AVVto0r2dNKk1lRB5QohzybxEfbSVv6EgzhtYGejlUq-1m8v65G6JiweeJIZzPPetT-lJeJ0Y2B-1DY429D4POKmwT20XDeltQdqbRMdw_6y3n8FBysiiO3y5IBaj8VgGYWJ-OoNK7CboRYvQKP3Vd05F1Hqn8GKzKzA6IGhMpqeSrauYmFvepO5Cf9tEMVlfqlX1LIDT1yRklw4umqvxNuGkSlOM-DiA85";
+const OFFICE_ADDRESS = "Prosperity Tower Lantai 9 Unit C, District 8 SCBD Lot 28, Jl. Jend. Sudirman Kav. 52-53, Kelurahan Senayan, Kec. Kebayoran Baru, Kota Adm. Jakarta Selatan, DKI Jakarta 12190";
+const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS)}`;
+const targetSegments = [
+  ["precision_manufacturing", "Industri Manufaktur Logam & Kimia"],
+  ["construction", "Konstruksi & Infrastruktur Pembangunan"],
+  ["bolt", "Sektor Energi & Pabrik Pengolahan"],
+];
 
 const wrap = "max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin";
 const sec = "w-full py-space-xl md:py-24";
@@ -65,19 +72,33 @@ export default function Home() {
           </div>
         </section>
 
-        {/* QUICK FACTS */}
+        {/* TARGET SEGMEN PASAR */}
         <section className={`relative z-20 ${wrap} -mt-8`}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-surface-container-lowest p-space-md rounded-xl shadow-xl">
-            {facts.map(([i, l, v, s]) => (
-              <div key={l} className="flex items-start gap-4 p-4 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all">
-                <div className="w-12 h-12 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center shrink-0"><Icon name={i} className="text-[24px]" /></div>
-                <div className="flex flex-col min-w-0">
-                  <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">{l}</span>
-                  <span className="font-headline-sm text-headline-sm text-on-surface font-bold truncate">{v}</span>
-                  <span className="font-body-sm text-body-sm text-outline mt-0.5">{s}</span>
-                </div>
+          <div className="rounded-xl bg-surface-container-lowest p-space-md shadow-xl md:p-space-lg">
+            <div className="mb-space-md flex flex-col gap-space-sm md:flex-row md:items-start md:gap-space-lg">
+              <div className="flex shrink-0 items-center gap-2">
+                <Icon name="groups" className="text-secondary text-[20px]" />
+                <h2 className="font-label-lg text-label-lg text-on-surface font-bold">Target Segmen Pasar</h2>
               </div>
-            ))}
+              <p className="font-body-sm text-body-sm text-on-surface-variant md:max-w-3xl">PT Bumi Sada Mineral memfokuskan layanan pengadaan kepada pemangku kepentingan kunci di ekosistem produktif:</p>
+            </div>
+            <div className="grid grid-cols-1 items-stretch gap-3 md:grid-cols-3 md:gap-4">
+              {targetSegments.map(([icon, title]) => (
+                <div key={title} className="flex min-h-24 items-start gap-3 rounded-lg bg-surface-container-low p-3 sm:p-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-container">
+                    <Icon name={icon} className="text-secondary-fixed text-[20px]" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Segmen Pasar</span>
+                    <h3 className="font-headline-sm text-headline-sm break-words text-on-surface font-bold leading-snug">{title}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-space-md flex flex-col items-start justify-between gap-2 border-t border-outline-variant/30 pt-space-sm text-xs text-on-surface-variant sm:flex-row sm:items-center">
+              <span>Standar Kualitas B2B</span>
+              <span className="font-semibold text-secondary">Verified Compliance</span>
+            </div>
           </div>
         </section>
 
@@ -150,22 +171,9 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              <div className="lg:col-span-4 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+            <div className="w-full rounded-xl bg-primary-container p-space-lg text-on-primary shadow-md">
                 <div>
-                  <div className="flex items-center gap-2 mb-2"><Icon name="groups" className="text-secondary text-[20px]" /><span className="font-label-lg text-label-lg text-on-surface font-bold">Target Segmen Pasar</span></div>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-md">PT Bumi Sada Mineral memfokuskan layanan pengadaan kepada pemangku kepentingan kunci di ekosistem produktif:</p>
-                  <div className="flex flex-col gap-2.5">
-                    {segments.map((s) => (
-                      <div key={s} className="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low"><span className="w-2.5 h-2.5 rounded-full bg-secondary" /><span className="font-label-md text-label-md text-on-surface font-semibold">{s}</span></div>
-                    ))}
-                  </div>
-                </div>
-                <div className="mt-6 pt-4 flex items-center justify-between text-xs text-on-surface-variant"><span>Standar Kualitas B2B</span><span className="font-semibold text-secondary">Verified Compliance</span></div>
-              </div>
-              <div className="lg:col-span-8 bg-primary-container text-on-primary p-space-lg rounded-xl shadow-md flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-space-md">
+                  <div className="mb-space-md flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-2"><Icon name="alt_route" className="text-secondary-fixed text-[22px]" /><span className="font-label-lg text-label-lg text-secondary-fixed uppercase tracking-wider font-bold">Alur Model Bisnis</span></div>
                     <span className="font-label-sm text-label-sm text-inverse-on-surface/70">Terintegrasi dari Hulu ke Hilir</span>
                   </div>
@@ -180,11 +188,10 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <div className="mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-on-tertiary-container gap-2">
+                <div className="mt-6 flex flex-col items-start justify-between gap-2 border-t border-on-primary/10 pt-4 text-xs text-on-tertiary-container sm:flex-row sm:items-center">
                   <span>Prinsip Utama: Konsistensi Mutu, Ketepatan Volume, dan Skalabilitas Jangka Panjang</span>
                   <div className="flex items-center gap-1 text-secondary-fixed font-semibold"><span>Sistem Rantai BSM</span><Icon name="bolt" className="text-[14px]" /></div>
                 </div>
-              </div>
             </div>
           </div>
         </section>
@@ -238,7 +245,7 @@ export default function Home() {
               <div className="lg:col-span-5 flex flex-col gap-6">
                 <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
                   <div><span className="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Kantor Operasional &amp; Manajemen</span><h3 className="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">Prosperity Tower SCBD</h3></div>
-                  <div className="flex items-start gap-3"><Icon name="location_on" className="text-secondary text-[24px] shrink-0 mt-0.5" /><p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Prosperity Tower Lantai 9 Unit C, District 8 SCBD Lot 28, Jl. Jend. Sudirman Kav. 52-53, Kelurahan Senayan, Kec. Kebayoran Baru, Kota Adm. Jakarta Selatan, DKI Jakarta 12190</p></div>
+                  <div className="flex items-start gap-3"><Icon name="location_on" className="text-secondary text-[24px] shrink-0 mt-0.5" /><a href={MAP_URL} target="_blank" rel="noopener noreferrer" aria-label="Buka lokasi kantor di Google Maps" className="group flex min-w-0 items-start gap-1 font-body-sm text-body-sm text-on-surface-variant leading-relaxed hover:text-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"><span className="underline-offset-2 group-hover:underline">{OFFICE_ADDRESS}</span><Icon name="open_in_new" className="mt-0.5 shrink-0 text-[16px]" /></a></div>
                   {[["mail", "Alamat Email Resmi", "info@bumisadamineral.co.id", "mailto:info@bumisadamineral.co.id"], ["call", "Telepon / WhatsApp Korporat", "+62 21 5289 8000"], ["schedule", "Jam Kerja Operasional", "Senin – Jumat : 08.30 – 17.30 WIB"]].map(([i, l, v, h]) => (
                     <div key={l} className="flex items-center gap-3">
                       <Icon name={i} className="text-secondary text-[24px] shrink-0" />
@@ -248,15 +255,15 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="w-full h-64 rounded-xl overflow-hidden shadow-sm relative bg-surface-container-high bg-cover bg-center" style={{ backgroundImage: `url('${MAP}')` }}>
+                <a href={MAP_URL} target="_blank" rel="noopener noreferrer" aria-label="Buka lokasi kantor di Google Maps" className="group relative h-64 w-full cursor-pointer overflow-hidden rounded-xl bg-surface-container-high bg-cover bg-center shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary" style={{ backgroundImage: `url('${MAP}')` }}>
                   <div className="absolute inset-0 bg-primary-container/40 flex items-center justify-center p-4 text-center">
                     <div className="bg-surface-container-lowest/95 backdrop-blur-sm p-4 rounded-lg shadow-lg flex flex-col items-center gap-2">
                       <Icon name="pin_drop" className="text-secondary text-[28px]" />
                       <span className="font-headline-sm text-headline-sm text-on-surface font-bold">District 8 SCBD Lot 28</span>
-                      <span className="font-label-sm text-label-sm text-on-surface-variant">Kebayoran Baru, Jakarta Selatan</span>
+                      <span className="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant group-hover:text-secondary"><span>Kebayoran Baru, Jakarta Selatan</span><Icon name="open_in_new" className="text-[14px]" /></span>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
               <ContactForm />
             </div>

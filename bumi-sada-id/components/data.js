@@ -1,9 +1,3 @@
-export const facts = [
-  ["calendar_today", "Didirikan", "09 Juni 2023", "Pengukuhan Resmi"],
-  ["account_balance", "Bentuk Badan Hukum", "Perseroan Terbatas", "Entitas Badan Usaha PT"],
-  ["category", "Sektor Usaha Pokok", "Perdagangan Logam", "Bijih Logam & Mineral"],
-  ["location_on", "Kedudukan Kantor", "Jakarta Selatan", "District 8 SCBD Area"],
-];
 export const values = [["join_right", "Kemitraan Strategis"], ["account_tree", "Rantai Terintegrasi"], ["eco", "Nilai Berkelanjutan"]];
 export const bars = [
   ["Penyiapan & Land Management", "100% Siap Operasional", "bg-secondary w-full"],
@@ -16,7 +10,6 @@ export const divisions = [
   ["diamond", "Divisi 03 (Core)", "Logam & Bijih Logam", "Perdagangan besar logam dan bijih logam. Distribusi komoditas logam dasar dan bijih mineral berkualitas tinggi untuk rantai manufaktur nasional.", "Metallic Minerals", true],
   ["foundation", "Divisi 04", "Semen, Pasir & Batu", "Perdagangan besar semen, kapur, pasir, dan batu. Suplai material agregat dan bahan bangunan esensial untuk proyek infrastruktur strategis dan sipil.", "Aggregates Supply", false],
 ];
-export const segments = ["Industri Manufaktur Logam & Kimia", "Konstruksi & Infrastruktur Pembangunan", "Sektor Energi & Pabrik Pengolahan"];
 export const steps = [
   ["explore", "Langkah 01", "Sumber Daya", "Exploration & Preparation", "Identifikasi titik deposit, uji mutu material, dan kesiapan penyiapan lahan kerja."],
   ["local_shipping", "Langkah 02", "Rantai Pasok", "Integrated Supply Chain", "Logistik terintegrasi, manajemen buffer stock, serta penjadwalan distribusi multimoda."],
