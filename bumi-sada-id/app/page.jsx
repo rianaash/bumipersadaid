@@ -220,56 +220,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* KORPORASI */}
-        <section id="korporasi" className={`${sec} bg-surface-container-low`}>
-          <div className={wrap}>
-            <div className="mb-space-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center"><Icon name="corporate_fare" className="text-[20px]" /></div>
-                <div>
-                  <span className="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Afiliasi Holding</span>
-                  <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold">Bagian dari KGTB Holding</h3>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">PT Kreasi Generasi Tanpa Batas</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 self-start sm:self-center px-3 py-1.5 rounded-lg bg-surface-container text-on-surface"><span className="w-2 h-2 rounded-full bg-secondary" /><span className="font-label-md text-label-md font-semibold">Struktur Terkonsolidasi</span></div>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              <div className="lg:col-span-4 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
-                <div>
-                  <span className="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Struktur Ekuitas</span>
-                  <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold mt-1 mb-space-md">Pemegang Saham</h4>
-                  <div className="flex flex-col gap-3">
-                    {holders.map(([i, n, t]) => (
-                      <div key={n} className="p-3 rounded-lg bg-surface-container-low flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-3"><Icon name={i} className="text-on-surface text-[20px]" /><span className="font-body-sm text-body-sm text-on-surface font-semibold">{n}</span></div>
-                        <span className="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-bold">{t}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="mt-space-lg pt-space-sm text-xs text-outline">Kepemilikan terdaftar sah sesuai akta pendirian perseroan terbatas Republik Indonesia.</div>
-              </div>
-              <div className="lg:col-span-8">
-                <div className="mb-4"><span className="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Pimpinan Eksekutif</span><h4 className="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">Dewan Manajemen Perseroan</h4></div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {people.map((p) => (
-                    <div key={p.name} className="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col items-start hover:shadow-md transition-all">
-                      <div className="w-20 h-20 rounded-xl overflow-hidden mb-space-md bg-surface-container">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img alt={p.name} className="w-full h-full object-cover" src={p.img} />
-                      </div>
-                      <span className={`px-2.5 py-1 rounded font-label-sm text-label-sm font-bold uppercase mb-2 ${p.tagCls}`}>{p.tag}</span>
-                      <h5 className="font-headline-sm text-headline-sm text-on-surface font-bold">{p.name}</h5>
-                      <span className="font-label-lg text-label-lg text-secondary font-semibold mt-0.5">{p.role}</span>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">{p.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        
 
         {/* KONTAK */}
         <section id="kontak" className={`${sec} bg-surface`}>
