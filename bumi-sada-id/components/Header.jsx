@@ -1,21 +1,26 @@
-import Icon from "./Icon";
+import Image from "next/image";
+import Link from "next/link";
+import HeaderNavigation from "./HeaderNavigation";
+
+export { NAV } from "./navigation";
+
 const LOGO = "/logo-bsm-header.jpg";
-export const NAV = [["Beranda","#beranda"],["Tentang Kami","#tentang-kami"],["Bisnis Kami","#bisnis-kami"],["Visi & Misi","#visi-misi"],["Korporasi","#korporasi"],["Kontak","#kontak"]];
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary-container shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-      <div className="h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin flex items-center justify-between">
-        <a href="#beranda" className="flex items-center gap-space-md">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="PT Bumi Sada Mineral" className="h-12 w-auto rounded-md object-contain" src={LOGO} />
-        </a>
-        <nav className="hidden xl:flex items-center gap-space-lg">
-          {NAV.map(([l, h], i) => (
-            <a key={h} href={h} className={`py-space-xs font-label-lg text-label-lg transition-colors ${i === 0 ? "text-secondary-fixed border-b-2 border-secondary font-bold" : "text-inverse-on-surface hover:text-secondary-fixed"}`}>{l}</a>
-          ))}
-        </nav>
-        <a href="#kontak" className="hidden sm:inline-flex items-center justify-center bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-lg text-label-lg px-space-md py-space-sm rounded-lg transition-colors">Hubungi Kami</a>
+    <header className="sticky top-0 z-50 border-b border-primary-container/10 bg-[var(--header-background)] shadow-[0_1px_4px_rgba(19,27,46,0.06)]">
+      <div className="relative mx-auto flex h-[var(--header-height)] max-w-[1280px] items-center justify-between px-margin-mobile md:px-gutter lg:px-margin">
+        <Link href="/" aria-label="PT Bumi Sada Mineral, Beranda" className="shrink-0 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary">
+          <Image
+            src={LOGO}
+            alt="Logo PT Bumi Sada Mineral"
+            width={830}
+            height={360}
+            priority
+            className="h-9 w-auto object-contain sm:h-10 lg:h-12"
+          />
+        </Link>
+        <HeaderNavigation />
       </div>
     </header>
   );

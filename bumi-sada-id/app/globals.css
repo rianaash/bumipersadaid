@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+:root { --header-background: #fffefe; --header-height: 5rem; }
+@media (max-width: 767px) { :root { --header-height: 4rem; } }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 1rem); }
 body { overscroll-behavior: none; }
 ::-webkit-scrollbar { display: none; }
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
