@@ -25,26 +25,28 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="w-full pt-20 bg-surface">
+      <main className="w-full bg-surface">
         {/* HERO */}
-        <section id="beranda" className="relative w-full -mt-20 pt-28 pb-20 md:pb-28 lg:pb-32 overflow-hidden bg-primary-container">
+        <section id="beranda" className="relative w-full overflow-hidden bg-primary-container pt-10 pb-14 md:pt-16 md:pb-20 lg:pb-24">
           <div className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity" style={{ backgroundImage: `url('${HERO}')` }} />
           <div className="absolute inset-0 bg-gradient-to-b from-primary-container/95 via-primary-container/85 to-primary-container" />
           <div className={`relative ${wrap} flex flex-col items-start z-10`}>
-            <div className="inline-flex items-center gap-space-xs px-3 py-1.5 rounded-lg bg-surface-container-high/20 backdrop-blur-sm mb-space-lg">
-              <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
-              <span className="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest">Profil Korporasi Resmi</span>
-              <span className="text-on-tertiary-container text-xs px-1">•</span>
-              <span className="font-label-sm text-label-sm text-inverse-on-surface">PT Bumi Sada Mineral</span>
+            <div className="inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1 rounded-lg bg-surface-container-high/20 px-3 py-1.5 backdrop-blur-sm mb-space-lg">
+              <span className="flex items-center gap-1.5 whitespace-nowrap">
+                <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
+                <span className="font-label-sm text-[10px] leading-4 text-secondary-fixed uppercase tracking-wider md:text-label-sm md:tracking-widest">Profil Korporasi Resmi</span>
+                <span className="text-on-tertiary-container text-[10px] leading-4 md:text-xs" aria-hidden="true">•</span>
+              </span>
+              <span className="whitespace-nowrap font-label-sm text-[10px] leading-4 text-inverse-on-surface md:text-label-sm">PT Bumi Sada Mineral</span>
             </div>
             <h1 className="font-display text-display-mobile md:text-[64px] md:leading-[72px] text-on-primary font-extrabold max-w-4xl tracking-tight mb-space-md">
               From Resources to Industry.<br className="hidden sm:inline" />
               <span className="text-secondary-fixed">From Supply to Opportunity.</span>
             </h1>
-            <p className="font-body-lg text-body-lg text-inverse-on-surface/90 max-w-2xl leading-relaxed mb-space-xl">
+            <p className="font-body-lg text-body-lg text-inverse-on-surface/90 max-w-[65ch] leading-relaxed mb-space-xl">
               PT Bumi Sada Mineral menghubungkan kebutuhan industri dengan berbagai <span className="text-on-primary font-semibold">resources</span> yang relevan, dengan fokus pada ekosistem bisnis yang adaptif, reliable, dan kolaboratif.
             </p>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto mb-space-xl">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto mb-space-sm">
               <a href="#tentang-kami" className="inline-flex items-center justify-center gap-2 bg-secondary-container hover:bg-secondary text-primary-container hover:text-on-primary font-label-lg text-label-lg px-space-xl py-3.5 rounded-lg transition-all shadow-md">
                 <span>Tentang Kami</span><Icon name="arrow_downward" className="text-[18px]" />
               </a>
@@ -52,7 +54,7 @@ export default function Home() {
                 <span>Hubungi Kami</span><Icon name="mail" className="text-[18px]" />
               </a>
             </div>
-            <div className="w-full pt-space-lg flex flex-wrap items-center gap-3">
+            <div className="w-full pt-space-md flex flex-wrap items-center gap-3">
               <span className="font-label-md text-label-md text-on-tertiary-container uppercase tracking-wider">Prinsip Fundamental:</span>
               {[["sync_alt", "Adaptif"], ["verified", "Reliable"], ["handshake", "Kolaboratif"]].map(([i, t]) => (
                 <div key={t} className="flex items-center gap-2 px-3 py-1 rounded bg-surface-container-low/10 text-on-primary font-label-md text-label-md">
