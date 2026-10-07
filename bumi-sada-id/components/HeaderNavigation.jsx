@@ -20,19 +20,30 @@ export default function HeaderNavigation() {
 
     if (!sections.length) return undefined;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSection = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((left, right) => right.intersectionRatio - left.intersectionRatio)[0];
+    let frame = 0;
+    const updateActiveSection = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const headerBottom = document.querySelector("header")?.getBoundingClientRect().bottom ?? 0;
+        const currentSection = sections
+          .filter((section) => section.getBoundingClientRect().top <= headerBottom + 24)
+          .at(-1);
 
-        if (visibleSection) setActiveHref(`#${visibleSection.target.id}`);
-      },
-      { rootMargin: "-25% 0px -65% 0px", threshold: [0, 0.15, 0.5, 1] }
-    );
+        setActiveHref(currentSection ? `#${currentSection.id}` : "#beranda");
+      });
+    };
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("hashchange", updateActiveSection);
+    updateActiveSection();
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
+    };
   }, []);
 
   function handleNavClick(href) {
@@ -48,9 +59,9 @@ export default function HeaderNavigation() {
   }
 
   return (
-    <div className="flex items-center">
-      <nav aria-label="Navigasi utama" className="hidden lg:block">
-        <ul className="flex items-center gap-5 xl:gap-space-lg">
+    <div className="flex items-center lg:contents">
+      <nav aria-label="Navigasi utama" className="hidden lg:block lg:justify-self-center">
+        <ul className="flex items-center gap-8 xl:gap-9">
           {NAV.map(([label, href]) => (
             <li key={href}>
               <Link href={href} onClick={() => handleNavClick(href)} className={linkClass(href)} aria-current={activeHref === href ? "location" : undefined}>
@@ -64,7 +75,7 @@ export default function HeaderNavigation() {
       <Link
         href="#kontak"
         onClick={() => handleNavClick("#kontak")}
-        className="ml-6 hidden min-h-11 items-center justify-center rounded-lg bg-secondary px-space-md py-space-sm font-label-lg text-label-lg text-on-secondary transition-colors hover:bg-on-secondary-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary lg:inline-flex"
+        className="hidden min-h-11 items-center justify-center rounded-lg bg-secondary px-5 py-2.5 font-label-lg text-label-lg text-on-secondary transition-colors hover:bg-on-secondary-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary lg:inline-flex lg:justify-self-end"
       >
         Hubungi Kami
       </Link>
