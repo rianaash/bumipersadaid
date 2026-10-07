@@ -1,5 +1,5 @@
 import Icon from "./Icon";
-const LOGO = "https://lh3.googleusercontent.com/aida/AEtjO1WbUt3hSbGg8e8rQwRmEdpiycGhuL1FUj67dz9ty2r0yrCqFwkO20NL9LhNhUS2LNrc740lH0DNQOAD7YudcWJhKgbvn6kFTGakyPswTRl6Yvkl9-HXnCkLzqPXhQpHjNmmmhBJMzyPy027dlYg--KWyKVZciHRxJ7Ki62V_L2bbt_n2QA--tnQcIR80JYLcUnz_nV_Sfu7vkPcDSe7kFfYJkROD54MR6GndSQVTT6rPg";
+const LOGO = "/logo-bsm.png";
 export const NAV = [["Beranda","#beranda"],["Tentang Kami","#tentang-kami"],["Bisnis Kami","#bisnis-kami"],["Visi & Misi","#visi-misi"],["Korporasi","#korporasi"],["Kontak","#kontak"]];
 
 export default function Header() {
