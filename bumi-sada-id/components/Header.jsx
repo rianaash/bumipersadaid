@@ -1,5 +1,5 @@
 import Icon from "./Icon";
-const LOGO = "/logo-bsm.png";
+const LOGO = "/logo-bsm-header.jpg";
 export const NAV = [["Beranda","#beranda"],["Tentang Kami","#tentang-kami"],["Bisnis Kami","#bisnis-kami"],["Visi & Misi","#visi-misi"],["Korporasi","#korporasi"],["Kontak","#kontak"]];
 
 export default function Header() {
@@ -8,11 +8,7 @@ export default function Header() {
       <div className="h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin flex items-center justify-between">
         <a href="#beranda" className="flex items-center gap-space-md">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="BSM Logo" className="h-8 w-auto object-contain" src={LOGO} />
-          <div className="flex flex-col">
-            <span className="font-headline-sm text-headline-sm text-on-primary tracking-tight font-semibold leading-none">PT BUMI SADA MINERAL</span>
-            <span className="font-label-sm text-label-sm text-secondary-fixed tracking-wider uppercase mt-space-xs">Natural Resources &amp; Mining</span>
-          </div>
+          <img alt="PT Bumi Sada Mineral" className="h-12 w-auto object-contain" src={LOGO} />
         </a>
         <nav className="hidden xl:flex items-center gap-space-lg">
           {NAV.map(([l, h], i) => (
