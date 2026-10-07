@@ -197,14 +197,16 @@ export default function Home() {
               <h2 className="font-headline-lg text-headline-lg text-on-surface">Visi &amp; Misi Perusahaan</h2>
               <p className="font-body-md text-body-md text-on-surface-variant mt-2">Kompas strategis dalam menavigasi peluang komoditas dan menghadirkan dampak positif berkelanjutan bagi seluruh ekosistem mitra.</p>
             </div>
-            <div className="relative bg-gradient-to-r from-primary-container via-surface-container-high to-surface-container-low p-space-xl rounded-xl shadow-lg mb-space-xl overflow-hidden">
-              <div className="absolute -right-8 -bottom-8 opacity-10 text-on-surface"><Icon name="visibility" className="text-[200px]" /></div>
-              <div className="relative z-10 max-w-4xl">
+            <div className="relative mb-space-xl overflow-hidden rounded-xl bg-primary-container p-6 shadow-lg md:p-space-xl">
+              <div aria-hidden="true" className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 text-on-primary opacity-[0.06] md:block"><Icon name="visibility" className="text-[200px]" /></div>
+              <div className="relative z-10 max-w-full">
                 <div className="flex items-center gap-2 mb-space-sm">
                   <span className="px-3 py-1 rounded bg-secondary text-on-secondary font-label-sm text-label-sm uppercase font-bold">Visi Korporasi</span>
-                  <span className="font-label-sm text-label-sm text-on-surface-variant">Landasan Masa Depan</span>
+                  <span className="font-label-sm text-label-sm text-on-primary/75">Landasan Masa Depan</span>
                 </div>
-                <blockquote className="font-headline-md md:text-[32px] md:leading-[42px] font-bold text-on-surface leading-snug">“Menjadi mitra penggerak ekosistem komoditas terpercaya yang menghubungkan sumber daya dengan peluang industri dalam menciptakan kebutuhan industri yang berkelanjutan.”</blockquote>
+                <blockquote className="max-w-full font-headline-md text-[clamp(1.5rem,2.6vw,2.25rem)] leading-[1.3] font-bold text-on-primary md:max-w-[24em] lg:max-w-[28em]">
+                  <span className="text-secondary-container">“</span>Menjadi mitra penggerak ekosistem komoditas terpercaya yang menghubungkan sumber daya dengan peluang industri dalam menciptakan kebutuhan industri yang berkelanjutan.<span className="text-secondary-container">”</span>
+                </blockquote>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
