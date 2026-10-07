@@ -8,7 +8,7 @@ export default function Header() {
       <div className="h-20 max-w-[1280px] mx-auto px-margin-mobile md:px-gutter lg:px-margin flex items-center justify-between">
         <a href="#beranda" className="flex items-center gap-space-md">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="PT Bumi Sada Mineral" className="h-12 w-auto object-contain" src={LOGO} />
+          <img alt="PT Bumi Sada Mineral" className="h-12 w-auto rounded-md object-contain" src={LOGO} />
         </a>
         <nav className="hidden xl:flex items-center gap-space-lg">
           {NAV.map(([l, h], i) => (
